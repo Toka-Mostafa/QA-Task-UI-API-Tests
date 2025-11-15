@@ -45,10 +45,15 @@ Both projects share the same Gradle/TestNG setup but live in **separate packages
 
 src/
     ├── main/
+    
     │   ├── java/
+    
     │   │   ├── api/                      # API client layer and Notes & Users API 
+    
     │   │   ├── e2ePages/                 # Page Objects for Freshnesecom
+    
     │   │   
+    
     ├── test/
     │   ├── java/
     │   │   ├── base/                     # BaseTest, shared setup
