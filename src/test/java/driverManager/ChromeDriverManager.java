@@ -32,7 +32,7 @@ public class ChromeDriverManager extends DriverManager {
             options.addArguments("--window-size=1840,1080");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-gpu");
-            //options.addArguments("--headless");
+            options.addArguments("--headless");
             options.addArguments("--remote-allow-origins=*");
             options.addArguments("--disable-dev-shm-usage");
 

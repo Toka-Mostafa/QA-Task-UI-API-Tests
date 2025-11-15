@@ -2,6 +2,12 @@ plugins {
     id 'java'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 
 
 repositories {
@@ -9,22 +15,41 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+
     // Selenium
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.24.0'
+
     // testng
     testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
+
     // java faker
     implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
     // dotenv
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
-    implementation 'io.github.bonigarcia:webdrivermanager:5.5.0'
+
+    // Logging
     implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+    // REST Assured
+    implementation 'io.rest-assured:rest-assured:5.4.0'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+
+    // Allure + TestNG
+    testImplementation 'io.qameta.allure:allure-testng:2.27.0'
+
+
+    // WebDriverManager
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+
 
 
 }
 
-test {
-    useTestNG()
+tasks.withType(Test) {
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+    systemProperty "allure.results.directory", "build/allure-results"
 }
