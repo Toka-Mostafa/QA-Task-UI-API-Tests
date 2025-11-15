@@ -47,13 +47,9 @@ src/
     ├── main/
     
     │   ├── java/
-    
     │   │   ├── api/                      # API client layer and Notes & Users API 
-    
     │   │   ├── e2ePages/                 # Page Objects for Freshnesecom
-    
     │   │   
-    
     ├── test/
     │   ├── java/
     │   │   ├── base/                     # BaseTest, shared setup
